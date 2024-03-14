@@ -19,6 +19,8 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
+import androidx.compose.material3.Card
+import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.OutlinedTextFieldDefaults
@@ -57,17 +59,13 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun CalculadoraIMC() {
-    Column (
-        modifier = Modifier
-            .fillMaxSize()
-    ){
         Column (
             modifier = Modifier
                 .background(color = Color(0xffEA1450))
                 .fillMaxWidth()
                 .height(200.dp),
             horizontalAlignment = Alignment.CenterHorizontally,
-            verticalArrangement = Arrangement.SpaceEvenly
+            verticalArrangement = Arrangement.Center
         ){
             Image(
                 painter = painterResource(id = R.drawable.imc),
@@ -82,17 +80,16 @@ fun CalculadoraIMC() {
         }
         Column (
             modifier = Modifier
+                .padding(top = 110.dp)
                 .fillMaxSize(),
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.SpaceEvenly
         ){
-            Box (
+            Card (
                 modifier = Modifier
-                    .padding(horizontal = 16.dp)
-                    .background(
-                        color = Color(0xffF9F6F6),
-                        shape = RoundedCornerShape(8.dp)
-                    )
+                    .padding(horizontal = 16.dp),
+                shape = RoundedCornerShape(8.dp),
+                CardDefaults.cardColors(containerColor = Color(0xFFEBEBEB)),
             ) {
                 Column(
                     modifier = Modifier.padding(16.dp, 26.dp)
@@ -131,7 +128,6 @@ fun CalculadoraIMC() {
                             focusedBorderColor = Color(0xffEA1450)
                         )
                     )
-
                     Text(
                         text = "Sua altura:",
                         color = Color(0xffEA1450),
@@ -220,8 +216,6 @@ fun CalculadoraIMC() {
         }
 
     }
-
-}
 
 @Preview(showBackground = true, showSystemUi = true)
 @Composable
